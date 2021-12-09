@@ -34,18 +34,20 @@ Playbook includes the following roles:
 * weblogic
 * wls-domain
 
-
-
 wls-prereq:
+
 This role configures the Linux system with requirements to run the WebLogic domain
 
 java:
+
 This role configures the Linux system with JDK8 JDK rpm file needs to be inside path: roles/java/files
 
 weblogic:
+
 This role installs the Weblogic 12c R2 in Oracle Linux 7 Weblogic firmware needs to be inside path: roles/weblogic/files
 
 wls-domain:
+
 This role creates and configures a Domain with Weblogic Creates some initial configuration like boot.properties file
 
 
