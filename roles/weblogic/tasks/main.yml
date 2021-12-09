@@ -1,0 +1,20 @@
+---
+- name: Copy weblogic installer to host
+  copy:
+    src: "{{ wls_source }}"
+    dest: "{{ wls_dest }}"
+    owner: "{{ oracle_user }}"
+    group: "{{ oracle_group }}"
+
+- name: Copy files to host for silent install
+  template:
+    src: "{{ item }}"
+    dest: "{{ oracle_base }}/install"
+    owner: "{{ oracle_user }}"
+    group: "{{ oracle_group }}"
+  loop:
+    - 'templates/wls.rsp'
+    - 'templates/oraInst.loc'
+
+- name: Install weblogic server
+  command: java -jar {{ wls_dest }} -silent -responseFile {{ oracle_base }}/install/wls.rsp -invPtrLoc {{ oracle_base }}/install/oraInst.loc

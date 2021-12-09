@@ -1,0 +1,12 @@
+---
+- name: Copy jdk to host
+  copy:
+    src: "{{ jdk_source }}"
+    dest: "{{ jdk_dest }}"
+    owner: "{{ oracle_user }}"
+    group: "{{ oracle_group }}"
+
+- name: Install jdk
+  yum:
+    name: "{{ jdk_dest }}"
+    state: present

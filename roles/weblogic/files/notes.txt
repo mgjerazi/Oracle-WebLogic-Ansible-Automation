@@ -1,0 +1,2 @@
+Add here the weblogic firmware.
+Version used: fmw_12.2.1.4.0_wls.jar

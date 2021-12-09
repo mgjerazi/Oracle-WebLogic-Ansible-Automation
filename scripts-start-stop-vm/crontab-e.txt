@@ -1,0 +1,21 @@
+##### OCI TEST WEB START SCRIPT #####
+53 15 * * 1-5 /home/opc/.oci/startcompute.sh ocid1.instance.oc1.eu-frankfurt-1.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa >> /home/opc/.oci/logs/startTESTWEBinstance 2>&1
+##### OCI TEST WEB STOP SCRIPT #####
+00 18 * * 1-5 /home/opc/.oci/stopcompute.sh ocid1.instance.oc1.eu-frankfurt-1.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  >> /home/opc/.oci/logs/stopTESTWEBinstance 2>&1
+
+
+
+##### OCI TEST WLS START SCRIPT #####
+53 15 * * 1-5 /home/opc/.oci/startcompute.sh ocid1.instance.oc1.eu-frankfurt-1.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  >> /home/opc/.oci/logs/TESTwls-wls-o 2>&1
+##### OCI TEST WLS STOP SCRIPT #####
+00 18 * * 1-5 /home/opc/.oci/stopcompute.sh ocid1.instance.oc1.eu-frankfurt-1.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa >> /home/opc/.oci/logs/stopTESTWLSinstance 2>&1
+
+
+
+##### OCI TEST DB START SCRIPT #####
+#00 08 * * 1-5 /home/opc/.oci/startdb.sh  ocid1.dbnode.oc1.eu-frankfurt-1.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa >> /home/opc/.oci/logs/startTESTDB 2>&1
+##### OCI TEST DB STOP SCRIPT #####
+#00 18 * * 1-5 /home/opc/.oci/stopdb.sh ocid1.dbnode.oc1.eu-frankfurt-1.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa >> /home/opc/.oci/logs/stopTESTDB 2>&1
+
+ 
+

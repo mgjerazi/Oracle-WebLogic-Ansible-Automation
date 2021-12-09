@@ -1,0 +1,16 @@
+---
+- name: Deploy Weblogic 12c R2 in Oracle Linux 7
+  hosts: weblogic
+  become: yes
+  vars_files:
+    # Infrastructure variables
+    - infra-vars.yml
+    # Infrastructure passwords
+    - secrets.yml
+  roles:
+    - role: wls-prereq
+    - role: java
+    - role: weblogic
+      become_user: '{{ oracle_user }}'
+    - role: wls-domain
+      become_user: '{{ oracle_user }}'

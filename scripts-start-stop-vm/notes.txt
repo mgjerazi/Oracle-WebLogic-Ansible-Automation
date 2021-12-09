@@ -1,0 +1,2 @@
+Scripts for Start/Stop VM 
+usually on .opc folder in Bastion WLS

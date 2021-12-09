@@ -1,0 +1,31 @@
+---
+- name: Create domain directory
+  file:
+    state: directory
+    path: "{{ domain_home }}"
+
+- name: Copy create domain python script
+  template:
+    src: templates/domain.py
+    dest: "{{ domain_dest }}"
+  tags:
+    - create-domain
+
+- name: Execute create domain script
+  command: "{{ wls_common_home }}/wlst.sh {{ domain_dest }}"
+  tags:
+    - create-domain
+
+- name: Create security folder on Admin Server
+  file:
+    state: directory
+    path: "{{ domain_home }}/servers/{{ domain_admin_server }}/security"
+  tags:
+    - config-admin-server
+
+- name: Create boot.properties file
+  template:
+    src: templates/boot.properties
+    dest: "{{ domain_home }}/servers/{{ domain_admin_server }}/security/boot.properties"
+  tags:
+    - config-admin-server

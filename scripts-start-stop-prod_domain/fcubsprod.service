@@ -1,0 +1,23 @@
+[Unit]
+Description=The Oracle Weblogic Server startup service
+Requires=rpc-statd.service network.target nfs.service nfs-mountd.service local-fs.target remote-fs.target u01-data.mount
+After=syslog.target network.target nfs.service nfs-mountd.service local-fs.target rpc-statd.service remote-fs.target u01-data.mount
+
+[Service]
+# systemd ignores PAM limits, so set any necessary limits in the service.
+# Not really a bug, but a feature.
+# https://bugzilla.redhat.com/show_bug.cgi?id=754285
+LimitMEMLOCK=infinity
+LimitNOFILE=65535
+
+#Type=simple
+# idle: similar to simple, the actual execution of the service binary is delayed
+#       until all jobs are finished, which avoids mixing the status output with shell output of services.
+RemainAfterExit=yes
+User=root
+Restart=no
+ExecStart=/bin/bash -c '/u01/data/domains/scripts/FCUBS_PROD/reboot_fcubsprod.sh'
+ExecStop=/bin/bash -c '/u01/data/domains/scripts/FCUBS_PROD/shutdown_fcubsprod.sh'
+
+[Install]
+WantedBy=multi-user.target

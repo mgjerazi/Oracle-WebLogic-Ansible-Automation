@@ -1,0 +1,26 @@
+---
+# Configure Linux
+- name: Install required libraries
+  yum:
+    name: "{{ packages_list }}"
+    state: present
+
+# Create user and groups
+- name: Create group
+  group:
+    name: "{{ oracle_group }}"
+    state: present
+
+- name: Create user
+  user:
+    name: "{{ oracle_user }}"
+    group: "{{ oracle_group }}"
+    password: "{{ oracle_os_user_pass }}"
+
+# Create base directories
+- name: Create Oracle install directories
+  file:
+    state: directory
+    path: "{{ oracle_base }}/install/configs"
+    owner: "{{ oracle_user }}"
+    group: "{{ oracle_group }}"

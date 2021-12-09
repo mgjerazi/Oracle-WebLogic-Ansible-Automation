@@ -1,0 +1,12 @@
+---
+- name: Create domain
+  hosts: weblogic
+  become: yes
+  vars_files:
+    # Infrastructure variables
+    - infra-vars.yml
+    # Infrastructure passwords
+    - secrets.yml
+  roles:
+    - role: wls-domain
+      become_user: '{{ oracle_user }}'

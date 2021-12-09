@@ -1,0 +1,13 @@
+---
+
+weblogic:
+  hosts:
+    wl01:
+      ansible_host: 130.61.234.93
+  vars:
+    ansible_ssh_user: root
+    ansible_ssh_pass: 1234
+
+all:
+  children:
+    weblogic:

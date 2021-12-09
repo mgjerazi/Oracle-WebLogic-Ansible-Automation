@@ -1,0 +1,2 @@
+Add here the JDK rpm firmware.
+Version used: jdk-8u311-linux-x64.rpm

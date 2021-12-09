@@ -1,0 +1,28 @@
+# Oracle os user and group
+oracle_user: 'oracle'
+oracle_group: 'oinstall'
+# Software and configuration main directory
+oracle_base: '/oracle'
+
+domain_name: 'wls_domain_name'
+domain_admin_server: 'oraclelinux'
+
+
+# JDK installer and target folder
+jdk_source: 'files/jdk-8u311-linux-x64.rpm'
+jdk_dest: '{{ oracle_base }}/install/jdk-8u311-linux-x64.rpm'
+
+# Weblogic installer and target folder
+wls_source: 'files/fmw_12.2.1.4.0_wls.jar'
+wls_dest: '{{ oracle_base }}/install/fmw_12.2.1.4.0_wls.jar'
+
+# Domain
+domain_dest: '{{ oracle_base }}/install/configs/domain.py'
+
+# Common paths and names
+oracle_home: '{{ oracle_base }}/Oracle_Home'
+domains_directory: '{{ oracle_home }}/WLS/user_projects/domains'
+domain_home: '{{ domains_directory }}/{{ domain_name }}'
+weblogic_home: '{{ oracle_home }}/WLS/wlserver'
+wls_common_home: '{{ weblogic_home }}/common/bin'
+weblogic_admin: 'weblogic'
