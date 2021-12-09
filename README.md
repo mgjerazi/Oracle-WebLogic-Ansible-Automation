@@ -71,7 +71,7 @@ ansible all -m ping
 ansible-playbook weblogic.yml -K
 
 
-WLS Commands:
+* WLS Commands:
 
 sudo firewall-cmd --add-port=7001/tcp --permanent
 
