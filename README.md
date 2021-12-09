@@ -8,9 +8,11 @@ SSH access from Ansible Controller to FMW hosts
 Ansible playbook for deploying a WebLogic 12c R2 Domain
 
 You can connect to admin server on port 7001 using path
+
 http://weblogic-ip:7001/console/login/LoginForm.jsp
 
 username:weblogic
+
 password:welcome1
 
 
@@ -27,10 +29,10 @@ nohup ./startWebLogic.sh > no_weblogic.log 2>&1 &
 
 Playbook includes the following roles:
 
-wls-prereq
-java
-weblogic
-wls-domain
+* wls-prereq
+* java
+* weblogic
+* wls-domain
 
 
 
